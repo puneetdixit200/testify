@@ -2369,6 +2369,11 @@ func TestInDeltaSlice(t *testing.T) {
 		[]float64{1, 2},
 		0.1), "Expected slices with extra actual values to fail")
 
+	False(t, InDeltaSlice(mockT,
+		[]float64{1},
+		[]int{1},
+		0.1), "Expected slices with different types to fail")
+
 	False(t, InDeltaSlice(mockT, "", nil, 1), "Expected non numeral slices to fail")
 }
 
